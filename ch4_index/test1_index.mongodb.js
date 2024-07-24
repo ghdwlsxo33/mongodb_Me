@@ -147,9 +147,16 @@ for (var i = 0; i < 100; i++) {
 }
 
 db.spatial.ensureIndex({ pos: "2d" });
-db.spatial.find({ pos: { $near: [5, 5] } }, { _id: 0 }).limit(5);
+
+db.spatial.find(
+    { pos: { $near: [5, 5] } },
+     { _id: 0 }
+    ).limit(10);
 db.spatial
-  .find({ pos: { $near: [5, 5] } }, { _id: 0 })
+  .find(
+    { pos: { $near: [5, 5] } },
+     { _id: 0 }
+    )
   .limit(5)
   .explain();
 //CENTER
